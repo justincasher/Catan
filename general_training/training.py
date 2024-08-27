@@ -48,7 +48,7 @@ if __name__ == "__main__" :
 
     # set criterion and training schedule
     criterion = torch.nn.SmoothL1Loss()
-    games_per_epoch = 2
+    games_per_epoch = 1
     start_time = time.time()
     games_played = 0
 
