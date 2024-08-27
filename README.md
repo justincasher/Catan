@@ -1,2 +1,3 @@
 # Catan
-Code behind my Catan project
+
+This repository contains the code behind my [Catan project](https://justinasher.me/catan_rl).
