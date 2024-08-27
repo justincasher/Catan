@@ -8,3 +8,4 @@ The folders are as follows:
 - ```general_training``` contains the training procedure for arbitrary board positions (it is nearly identical to ```fixed_training```)
 
 Here are links to download trained models:
+- [General model](https://drive.google.com/uc?export=download&id=1b47cCXPFYiMhxH-_S5Nqxfy4LX3VMXG-)
