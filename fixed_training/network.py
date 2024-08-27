@@ -2,9 +2,9 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 
-class ResidueBlock(nn.Module) : 
+class BasicBlock(nn.Module) : 
     def __init__(self, in_dim, out_dim) : 
-        super(ResidueBlock, self).__init__()
+        super(BasicBlock, self).__init__()
 
         self.linear1 = nn.Linear(in_features=in_dim, out_features=out_dim)
         self.linear2 = nn.Linear(in_features=out_dim, out_features=out_dim)
@@ -18,15 +18,15 @@ class ResidueBlock(nn.Module) :
         return out
 
 class CatanNetwork(nn.Module):
-    def __init__(self, neurons) :
+    def __init__(self) :
         super(CatanNetwork, self).__init__()
 
-        self.layer1 = nn.Linear(1782, neurons)
-        self.layer2 = ResidueBlock(neurons, neurons)
-        self.layer3 = ResidueBlock(neurons, neurons)
-        self.layer4 = ResidueBlock(neurons, neurons)
-        self.layer5 = ResidueBlock(neurons, neurons)
-        self.linear = nn.Linear(in_features=neurons, out_features=1)
+        self.layer1 = nn.Linear(1782, 500)
+        self.layer2 = BasicBlock(500, 500)
+        self.layer3 = BasicBlock(500, 500)
+        self.layer4 = BasicBlock(500, 500)
+        self.layer5 = BasicBlock(500, 500)
+        self.linear = nn.Linear(in_features=500, out_features=1)
 
     def forward(self, x):
         out = self.layer1(x)
