@@ -4,15 +4,6 @@
 ## # # # # # # # # # #
 ######################
 
-from collections import deque 
-import concurrent.futures
-import copy
-import itertools
-import numpy as np
-import numpy.random as random
-import os
-from random import shuffle
-import statistics
 import time
 
 import torch
@@ -20,10 +11,6 @@ import torch.optim as optim
 
 from game import CatanGame
 from network import CatanNetwork
-
-# torch.set_printoptions(threshold=10_000)
-# print(predictions)
-# # print(labels)
 
 if __name__ == "__main__" : 
     # set device
@@ -37,19 +24,20 @@ if __name__ == "__main__" :
     output = open("out.txt", "a")
 
     # set learning rate
-    learning_rate = (5e-5) / (5 * 2)
-
-    # load net from checkpoint
-    checkpoint = torch.load("checkpoint")
-    net = checkpoint["net"]
-    optimizer = checkpoint["optimizer"]
-    curr_epoch = checkpoint["epoch"]
+    learning_rate = 5e-5
 
     # set net and optimizer
-    # net = CatanNetwork(neurons=500) 
-    # optimizer = optim.AdamW(net.parameters(), lr=learning_rate)
+    net = CatanNetwork(neurons=500) 
+    optimizer = optim.AdamW(net.parameters(), lr=learning_rate)
+    curr_epoch = 0
 
-    print(f"\n -- Restarting on epoch {curr_epoch+1} -- \n")
+    # -- load net from checkpoint --
+    # checkpoint = torch.load("checkpoint")
+    # net = checkpoint["net"]
+    # optimizer = checkpoint["optimizer"]
+    # curr_epoch = checkpoint["epoch"]
+    #
+    # print(f"\n -- Restarting on epoch {curr_epoch+1} -- \n")
 
     # setup net
     net.to(device)
@@ -57,9 +45,6 @@ if __name__ == "__main__" :
 
     # change the learning rate 
     for p in optimizer.param_groups: p["lr"] = learning_rate
-
-    # enable amsgrad
-    # for p in optimizer.param_groups: p["amsgrad"] = True
 
     # set criterion and training schedule
     criterion = torch.nn.SmoothL1Loss()

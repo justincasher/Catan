@@ -51,6 +51,9 @@ class Player :
 
     :type moves: List
         Number of moves available next turn
+    :type predictions: List
+        The predictions the player has made throughout 
+        the game, used for computing the error
     :type possible_roads: List
         Positions of future possible roads
     :type possible_settlements: List 
@@ -62,6 +65,12 @@ class Player :
         Positions of current roads
     :type settlements: Set
         Positions of current settlements
+    
+    :type input_tensor: Torch Tensor
+        The board position seen from the current player's
+        perspective
+    :type moves_tensor: Torch Tensor
+        The moves that the player can make
         
     Methods
     -------
@@ -89,10 +98,8 @@ class Player :
 
         :type load_board: Board
             Board pointer
-
         :type load_game: CatanGame
             Game pointer
-
         :type player_number: int
             Number of this player
         """
@@ -201,7 +208,7 @@ class Player :
         Returns the number of resource cards current in the 
         player's hand.
 
-        rtype total_resource_cards: int
+        :rtype total_resource_cards: int
         """
 
         total_resource_cards = self.cards["Wheat"] + self.cards["Wood"] + self.cards["Sheep"] + self.cards["Brick"] + self.cards["Stone"]
@@ -266,10 +273,8 @@ class Player :
         Performs a depth-first search to find the longest
         road for the player.
 
-        :type settlement: tuple
+        :type pos: str
             Settlement to perform DFS starting at 
-        :type visited: set
-            Set of settlements which we have already visited
         :type counter: int
             Length of the current longest road
         """

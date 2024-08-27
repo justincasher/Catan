@@ -1,10 +1,6 @@
-from random import SystemRandom
-
 import torch
 from torch import nn
 import torch.nn.functional as F
-from torch.utils.data import DataLoader
-from torchvision import datasets, transforms
 
 class ResidueBlock(nn.Module) : 
     def __init__(self, in_dim, out_dim) : 

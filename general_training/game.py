@@ -4,10 +4,7 @@
 ## # # # # # # # # # #
 ######################
 
-import copy
-from random import shuffle
 from random import randint
-from operator import itemgetter
 
 from collections import Counter
 
@@ -25,13 +22,31 @@ class CatanGame :
     :type board: Board
         Pointer to the board
 
-    :type moves_list: Dict
+    :type has_MCTS: Bool
+        Whether or not the network has randomly chosen a move;
+        setting this to "True" will mean the network will never
+        randomly make a move
+
+    :type net: CatanNetwork
+        The model being trained
+
+    :type moves_dict: Dict
         Keys are the integers for moves in the players 
         moves_tensor; values are the associated move 
         return type
+
+    :type turn_number: int 
+        The current turn we are on, i.e., the number of times the
+        dice have been rolled
         
     :type players: List
         Pointer to each player in the game
+
+    :type optimizer: Torch Optimizer
+        The optimizer used to train the network
+
+    :type device: torch.device
+        The device (CPU or CUDA) that the network will be trained on
     """
 
     ####################
@@ -41,9 +56,6 @@ class CatanGame :
     def __init__(self, number_of_players, net, optimizer, device) :
         """
         Initializes the game by creating the board and players.
-
-        :type player_nets: List
-            Neural networks used to make players decisions
         """
 
         self.device = device
@@ -792,6 +804,13 @@ class CatanGame :
         """
         Removes the given ratio of the ratio to be traded from 
         the player's cards, and adds one of the new resource.
+
+        :type player: Player
+            The player making the trade
+        :type trade_resource: str
+            The resource being traded
+        :type new_resource: str
+            The resource being traded for
         """
 
         trade_ratio = player.trade_ratios[trade_resource]
@@ -809,8 +828,10 @@ class CatanGame :
 
         Parameters
         ----------
-        player : player
+        :type player: Player
             Player who is performing the move.
+        :type setup_move_number: int 
+            Whether this is the first or second setup move
         """
 
 
@@ -876,6 +897,9 @@ class CatanGame :
         """
         Generates the moves list given the player's 
         current resources, buildings, and positions.
+
+        :type player: Player
+            The player whose moves list is being generated
         """
 
         player.moves.clear()
@@ -925,7 +949,15 @@ class CatanGame :
             if player.cards["Victory point"] - player.new_development_cards["Victory point"] >= 1 : 
                 player.moves.append((("Play development", "Victory point")))
 
-    def generateMovesTensor(self, player) : 
+    def generateMovesTensor(self, player) :
+        """
+        Generates the moves list given the player's 
+        current resources, buildings, and positions.
+
+        :type player: Player
+            The player whose moves tensor is being generated
+        """
+
         player.moves_tensor = torch.zeros(246, device=self.device)
 
         for k in range(len(player.moves)) : 
@@ -1072,7 +1104,7 @@ class CatanGame :
         Generates the output tensor for the given player.
 
         :type player: Player
-            Player whose output tensor is being generated
+            Player whose input tensor is being generated
         """
 
         # record number of players 

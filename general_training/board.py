@@ -5,11 +5,10 @@
 ######################
 
 from random import shuffle
-from random import randint
 
 class Board :
     """
-    Represents the current state of the Catan board
+    Represents the current state of the Catan board.
 
     Attributes
     ----------
@@ -23,6 +22,10 @@ class Board :
         Keys are the road positions as sets of settlement positions;
         values are the player number that has built there, -1 if no one 
         has built there
+    :type road_map: Dict
+        Key are the road positions as sets of settlement positions;
+        values are the relative positions of the roads in the output
+        tensor
     :type settlement_positions: Dict 
         Contains all possible settlement locations still available
     :type settlements: Dict 
@@ -35,9 +38,17 @@ class Board :
     :type ships: Dict
         Keys are the ship positions as sets of settlements positions;
         values are the resources being traded there
+    :type ships_map: Dict
+        Keys are the ship positions as sets of settlements positions;
+        values are the relative positions of the ships in the output
+        tensor 
     :type tiles: Dict
         Keys are the tile positions as sets of settlement positions;
         values are tuples (Resource, Dice number)
+    :type tiles_map: Dict
+        Keys are the tile positions as sets of settlement positions;
+        values are the relative positions of the tiles in the output
+        tensor 
 
     :type development_cards: List 
         Acts as the deck of cards
@@ -66,7 +77,7 @@ class Board :
         """
         Creates all the variables. Then generates the tile resource 
         and dice numbers, ship values, and shuffles the development 
-        cards
+        cards.
         """
         
         self.settlements = {
@@ -405,7 +416,7 @@ class Board :
     def genResources(self) :
         """
         Randomly assigns a resouce and a dice numbers to 
-        each tile
+        each tile.
         """
         
         possible_resources = [
@@ -440,7 +451,7 @@ class Board :
 
     def genShips(self) :
         """
-        Randomly assigns a resources to each ship
+        Randomly assigns a resources to each ship.
         """
 
         values = [ 
@@ -457,7 +468,7 @@ class Board :
 
     def drawDevelopmentCard(self) :
         """
-        Draws the top development card
+        Draws the top development card.
 
         :rtype: str
             Development card type
