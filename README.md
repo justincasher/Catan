@@ -7,4 +7,4 @@ Here is a description of each folder:
 - ```fixed_training``` contains the training procedure for a fixed model
 - ```general_training``` contains the training procedure for arbitrary board positions (it is nearly identical to ```fixed_training```)
 
-You can download trained models here...
+Here are links to download trained models:
