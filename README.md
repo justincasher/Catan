@@ -10,4 +10,5 @@ The folders are as follows:
 *Note:* ```general_training``` is nearly identical to ```fixed_training```. Obviously, the board is not shuffled in ```fixed_training```. Furthermore, what is called a ```BasicBlock``` in ```fixed_training``` is called a ```ResidueBlock``` in ```general_training```, by mistake. This difference is important when importing models.
 
 Here are links to download trained models:
+- [Fixed board model](https://drive.google.com/uc?export=download&id=1xNLq4p44D234_PxZcSEPZT2agR9btUou)
 - [General model](https://drive.google.com/uc?export=download&id=1b47cCXPFYiMhxH-_S5Nqxfy4LX3VMXG-)
