@@ -410,6 +410,11 @@ class Board :
             "Monopoly" : 0
         }
 
+        # Generate resources and print them
+        width = 80 
+        print("\n" + "─" * width + "\n")
+        print("GAME RESOURCES".center(width))
+
         self.genResources()
         self.genShips()
 
@@ -448,6 +453,7 @@ class Board :
             self.tiles[tile] = (resource, number)
 
             tile_string = ", ".join([str(x) for x in tile])
+            print("{" + tile_string + "}:\t" + resource + ", " + str(number))
 
     def genShips(self) :
         """
@@ -465,6 +471,9 @@ class Board :
         for ship in self.ships:
             value = values.pop()        
             self.ships[ship] = value 
+
+            ship_string = ", ".join([str(x) for x in ship])
+            print(ship_string + ": \t" + value)
 
     def drawDevelopmentCard(self) :
         """
