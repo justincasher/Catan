@@ -6,7 +6,7 @@ The folders are as follows:
 
 - ```fixed_training``` contains the training procedure for a fixed model.
 - ```general_training``` contains the training procedure for arbitrary board positions.
-- ```fixed_human_vs_bot``` allows you to play against the model as a text game (y.
+- ```fixed_human_vs_bot``` allows you to play against the model as a text game.
 - ```general_human_vs_bot``` allows you to play against the model as a text game.
 
 To play against the bot, you will net to set up a physical board. (I did not want to create my own version of the game and infringe upon Kosmos' copyright.)
