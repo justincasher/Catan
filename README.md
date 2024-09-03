@@ -10,7 +10,7 @@ The folders are as follows:
 - ```general_human_vs_bot``` allows you to play against the model as a text game.
 
 There are also the following files:
-- ```Board_labeling.jpg``` gives a map for my coordinate system.
+- ```board_labeling.jpg``` gives a map for my coordinate system.
 - ```Input tensor.pdf``` details what is contained in each coordinate of the input tensor.
 - ```Moves tensor.pdf``` details what is contained in each coordinate of the moves tensor.
 
