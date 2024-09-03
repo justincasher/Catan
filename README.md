@@ -9,6 +9,11 @@ The folders are as follows:
 - ```fixed_human_vs_bot``` allows you to play against the model as a text game.
 - ```general_human_vs_bot``` allows you to play against the model as a text game.
 
+There are also the following files:
+- ```Board_labeling.jpg``` gives a map for my coordinate system.
+- ```Input tensor.pdf``` details what is contained in each coordinate of the input tensor.
+- ```Moves tensor.pdf``` details what is contained in each coordinate of the moves tensor.
+
 To play against the bot, you will net to set up a physical board. (I did not want to create my own version of the game and infringe upon Kosmos' copyright.)
 
 *Note:* ```general_training``` is nearly identical to ```fixed_training```. Obviously, the board is not shuffled in ```fixed_training```. Furthermore, what is called a ```BasicBlock``` in ```fixed_training``` is called a ```ResidueBlock``` in ```general_training```, by mistake. This difference is important when importing models.
