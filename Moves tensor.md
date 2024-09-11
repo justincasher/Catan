@@ -4,7 +4,7 @@
 
 ## Overview
 
-The moves tensor for our neural network is structured as a tensor of size $ 1 \times 246 $ as follows:
+The moves tensor for our neural network is structured as a tensor of size 1 x 246 as follows:
 
 <center> 
 
