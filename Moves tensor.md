@@ -21,7 +21,7 @@ The moves tensor for our neural network is structured as a tensor of size 246 x 
 |  197-216  | Trade             |
 |  217-221  | Discard           |
 |  222-240  | Move robber       |
-|    241    | Steal card        |
+|  241-246  | Steal card        |
 
 </center>
 
