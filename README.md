@@ -14,7 +14,7 @@ There are also the following files:
 - ```Input tensor.pdf``` details what is contained in each coordinate of the input tensor.
 - ```Moves tensor.pdf``` details what is contained in each coordinate of the moves tensor.
 
-To play against the bot, you will net to set up a physical board. (I did not want to create my own version of the game and infringe upon Kosmos' copyright.)
+To play against the bot, you will need to set up a physical board. (I did not want to create my own version of the game and infringe upon Kosmos' copyright.)
 
 *Note:* ```general_training``` is nearly identical to ```fixed_training```. Obviously, the board is not shuffled in ```fixed_training```. Furthermore, what is called a ```BasicBlock``` in ```fixed_training``` is called a ```ResidueBlock``` in ```general_training```, by mistake. This difference is important when importing models.
 
