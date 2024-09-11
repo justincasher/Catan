@@ -4,7 +4,7 @@
 
 ## Overview
 
-The input tensor for our neural network is structured as a 1 x 246 tensor as follows:
+The input tensor for our neural network is structured as a 395 x 12 tensor as follows:
 
 <center> 
 
