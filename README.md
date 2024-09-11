@@ -11,8 +11,8 @@ The folders are as follows:
 
 There are also the following files:
 - ```board_labeling.jpg``` gives a map for my coordinate system.
-- ```Input tensor.pdf``` details what is contained in each coordinate of the input tensor.
-- ```Moves tensor.pdf``` details what is contained in each coordinate of the moves tensor.
+- ```Input tensor.md``` details what is contained in each coordinate of the input tensor.
+- ```Moves tensor.md``` details what is contained in each coordinate of the moves tensor.
 
 To play against the bot, you will need to set up a physical board. (I did not want to create my own version of the game and infringe upon Kosmos' copyright.)
 
