@@ -8,6 +8,7 @@ The folders are as follows:
 - ```general_training``` contains the training procedure for arbitrary board positions.
 - ```fixed_human_vs_bot``` allows you to play against the fixed model as a text game.
 - ```general_human_vs_bot``` allows you to play against the general model as a text game.
+- ```cpp`` contains a C++ version of the code.
 
 There are also the following files:
 - ```board_labeling.jpg``` gives a map for my coordinate system.
